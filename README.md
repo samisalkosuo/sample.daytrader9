@@ -6,13 +6,15 @@ DayTrader is an end-to-end benchmark and performance sample application. It prov
 
 This sample can be installed onto Liberty runtime versions 21.0.0.3-beta and later. A prebuilt derby database is provided in resources/data
 
+## Quickstart
 
-To run this sample, first [download](https://github.com/OpenLiberty/sample.daytrader9/archive/master.zip) or clone this repo - to clone:
+- To run this sample, first [download](https://github.com/OpenLiberty/sample.daytrader9/archive/master.zip) or clone this repo - to clone:
 ```
 git clone git@github.com:OpenLiberty/sample.daytrader9.git
 ```
 
-From inside the sample.daytrader9 directory, build and start the application in Open Liberty with the following command:
+- From inside the sample.daytrader9 directory, build and start the application in Open  Liberty with the following command:
+
 ```
 mvn clean liberty:install-server package liberty:run
 ```
@@ -22,6 +24,65 @@ The server will listen on port 9080 by default.  You can change the port (for ex
 Once the server is started, you should be able to access the application at:
 http://localhost:9080/daytrader
 
+## Maven commands
+
+- Start Open Liberty in the background.
+```
+mvn liberty:start
+```
+
+- Stop background Open Liberty
+```
+mvn liberty:stop
+```
+
+- Check Open Liberty status.
+```
+mvn liberty:status
+```
+
+- Package application 
+```
+mvn package
+```
+
+- Deploy application to Open Liberty
+```
+mvn liberty:deploy
+```
+
+### Open Liberty server commands
+
+When Open Liberty is installed using Maven, files are in target/liberty/wlp-directory.
+
+Binaries are in bin-directory and the main binary is server-command (server.bat for Windows). 
+
+- Start server:
+```
+server start
+```
+
+- server top, status, run:
+```
+server stop|status|run
+```
+
+- Server version:
+```
+server version
+```
+
+- Package defaultServer as zip:
+
+```
+server package defaultServer --archive=DayTraderApp.zip --include=all
+```
+This packages the application and all Open Liberty files to zip-package that can be distributed where needed.
+
+- Package application and server as runnable jar:
+```
+server package defaultServer --archive=DayTraderApp.jar --include=minify,runnable
+```
 
 
 ## Notice
