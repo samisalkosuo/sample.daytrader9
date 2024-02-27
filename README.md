@@ -84,6 +84,25 @@ This packages the application and all Open Liberty files to zip-package that can
 server package defaultServer --archive=DayTraderApp.jar --include=minify,runnable
 ```
 
+### Container
+
+Before building the container, make sure that Liberty is installed and application is compiled locally:
+
+```
+mvn liberty:start package liberty:deploy liberty:stop
+```
+
+Build container:
+
+```
+podman build -t daytrader  .
+```
+
+Run container:
+
+```
+podman run -it --rm -p 9080:9080 daytrader
+```
 
 ## Notice
 
