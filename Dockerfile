@@ -1,4 +1,7 @@
-FROM openliberty/open-liberty:24.0.0.1-kernel-slim-java17-openj9-ubi
+#specific Open Liberty version
+FROM openliberty/open-liberty:24.0.0.2-kernel-slim-java17-openj9-ubi
+#latest version
+#FROM openliberty/open-liberty:kernel-slim-java17-openj9-ubi
 
 # Add Liberty server configuration including all necessary features
 COPY --chown=1001:0 src/main/liberty/config/server.xml /config/server.xml
