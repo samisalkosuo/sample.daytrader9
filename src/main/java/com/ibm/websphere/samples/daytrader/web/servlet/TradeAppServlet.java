@@ -16,6 +16,7 @@
 package com.ibm.websphere.samples.daytrader.web.servlet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletConfig;
@@ -120,7 +121,10 @@ public class TradeAppServlet extends HttpServlet {
     String userID = null;
     // String to create full dispatch path to TradeAppServlet w/ request
     // Parameters
-
+    
+    //demonstration line, uncomment & comment to demo live update during development
+    //System.out.println(new Date() + " Hello World!");
+    
     resp.setContentType("text/html");
 
     // Dyna - need status string - prepended to output
