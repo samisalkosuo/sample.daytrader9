@@ -26,27 +26,27 @@ http://localhost:9080/daytrader
 
 ## Maven commands
 
-- Start Open Liberty in the background.
+- Start Open Liberty in the background:
 ```
 mvn liberty:start
 ```
 
-- Stop background Open Liberty
+- Stop background Open Liberty:
 ```
 mvn liberty:stop
 ```
 
-- Check Open Liberty status.
+- Check Open Liberty status:
 ```
 mvn liberty:status
 ```
 
-- Package application 
+- Package application:
 ```
 mvn package
 ```
 
-- Deploy application to Open Liberty
+- Deploy application to local Open Liberty:
 ```
 mvn liberty:deploy
 ```
@@ -72,12 +72,11 @@ server stop|status|run
 server version
 ```
 
-- Package defaultServer as zip:
+- Package defaultServer as zip. This packages the application and all Open Liberty files to zip-package that can be distributed where needed:
 
 ```
 server package defaultServer --archive=DayTraderApp.zip --include=all
 ```
-This packages the application and all Open Liberty files to zip-package that can be distributed where needed.
 
 - Package application and server as runnable jar:
 ```
@@ -95,7 +94,7 @@ mvn liberty:start package liberty:deploy liberty:stop
 Build container:
 
 ```
-podman build -t daytrader  .
+podman build -t daytrader .
 ```
 
 Run container:
@@ -103,6 +102,23 @@ Run container:
 ```
 podman run -it --rm -p 9080:9080 daytrader
 ```
+
+#### Multi-stage build
+
+Multi-stage build compiles and packages the application during the build. This means that local workstation is not required to have Maven or Java installed, only Podman/Docker is required.
+
+Build container:
+
+```
+podman build -t daytrader -f multi-stage.dockerfile .
+```
+
+Run container:
+
+```
+podman run -it --rm -p 9080:9080 daytrader
+```
+
 
 ## Notice
 
